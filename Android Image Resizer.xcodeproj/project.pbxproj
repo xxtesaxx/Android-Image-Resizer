@@ -11,6 +11,7 @@
 		5E01BB781E7AE75D00203F26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E01BB771E7AE75D00203F26 /* ViewController.swift */; };
 		5E01BB7A1E7AE75D00203F26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E01BB791E7AE75D00203F26 /* Assets.xcassets */; };
 		5E01BB7D1E7AE75D00203F26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E01BB7B1E7AE75D00203F26 /* Main.storyboard */; };
+		5E01BB851E7AF1C100203F26 /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E01BB841E7AF1C100203F26 /* DestinationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		5E01BB791E7AE75D00203F26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E01BB7C1E7AE75D00203F26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E01BB7E1E7AE75D00203F26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E01BB841E7AF1C100203F26 /* DestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				5E01BB751E7AE75D00203F26 /* AppDelegate.swift */,
 				5E01BB771E7AE75D00203F26 /* ViewController.swift */,
+				5E01BB841E7AF1C100203F26 /* DestinationView.swift */,
 				5E01BB791E7AE75D00203F26 /* Assets.xcassets */,
 				5E01BB7B1E7AE75D00203F26 /* Main.storyboard */,
 				5E01BB7E1E7AE75D00203F26 /* Info.plist */,
@@ -133,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E01BB851E7AF1C100203F26 /* DestinationView.swift in Sources */,
 				5E01BB781E7AE75D00203F26 /* ViewController.swift in Sources */,
 				5E01BB761E7AE75D00203F26 /* AppDelegate.swift in Sources */,
 			);
@@ -250,6 +254,7 @@
 				DEVELOPMENT_TEAM = JQ6J76HT2A;
 				INFOPLIST_FILE = "Android Image Resizer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.janthielemann.Android-Image-Resizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -264,6 +269,7 @@
 				DEVELOPMENT_TEAM = JQ6J76HT2A;
 				INFOPLIST_FILE = "Android Image Resizer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.janthielemann.Android-Image-Resizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

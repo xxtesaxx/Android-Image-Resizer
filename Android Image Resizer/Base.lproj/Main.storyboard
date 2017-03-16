@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -653,7 +655,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Android_Image_Resizer" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -661,12 +663,13 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
+                    <window key="window" title="Android Image Resizer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="Android Image Resizer" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="maxSize" type="size" width="480" height="270"/>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -679,15 +682,174 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Android_Image_Resizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="357" height="179"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n8t-3h-S84">
+                                <rect key="frame" x="98" y="137" width="95" height="26"/>
+                                <popUpButtonCell key="cell" type="push" title="xxxhdpi" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="I2f-9l-mzv" id="cxN-S3-Xun">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="EMz-GE-Jav">
+                                        <items>
+                                            <menuItem title="ldpi" id="4GM-22-0T7"/>
+                                            <menuItem title="mdpi" id="6Hl-ES-2s0"/>
+                                            <menuItem title="hdpi" id="Gs3-hg-Ogi"/>
+                                            <menuItem title="xhdpi" id="7Yk-oN-hee"/>
+                                            <menuItem title="xxhdpi" id="YG0-gd-67w"/>
+                                            <menuItem title="xxxhdpi" state="on" id="I2f-9l-mzv"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="sourceSizeSelected:" target="XfG-lQ-9wD" id="PkJ-zw-zPL"/>
+                                </connections>
+                            </popUpButton>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="UPT-cL-kmT">
+                                <rect key="frame" x="18" y="118" width="45" height="18"/>
+                                <buttonCell key="cell" type="check" title="ldpi" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HhW-g2-k11">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bn0-C6-i76">
+                                <rect key="frame" x="18" y="142" width="76" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source Size" id="TQd-wN-Fm8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="GjI-ZJ-c6d">
+                                <rect key="frame" x="18" y="98" width="53" height="18"/>
+                                <buttonCell key="cell" type="check" title="mdpi" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zmf-pd-eYT">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="nGR-Dz-dNX">
+                                <rect key="frame" x="18" y="78" width="49" height="18"/>
+                                <buttonCell key="cell" type="check" title="hdpi" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="PLA-oJ-u0V">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="sbh-Hr-rLz">
+                                <rect key="frame" x="18" y="58" width="56" height="18"/>
+                                <buttonCell key="cell" type="check" title="xhdpi" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zZn-C2-OaZ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="isI-5U-yuo">
+                                <rect key="frame" x="18" y="38" width="63" height="18"/>
+                                <buttonCell key="cell" type="check" title="xxhdpi" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="SIv-sI-beU">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="X37-KQ-B2b">
+                                <rect key="frame" x="18" y="18" width="69" height="18"/>
+                                <buttonCell key="cell" type="check" title="xxxhdpi" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="EaK-96-ult">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="31f-fj-CxQ">
+                                <rect key="frame" x="198" y="20" width="139" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="Zsc-vV-l1a"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="dcQ-ci-kHg"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kqi-sv-nfT">
+                                <rect key="frame" x="198" y="20" width="139" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="IOh-GN-gJE"/>
+                                    <constraint firstAttribute="width" constant="139" id="vR5-Z2-2Gr"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="AppStoreIconBlue" id="qJG-IT-2Nd"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Ri-86-xz2">
+                                <rect key="frame" x="198" y="20" width="139" height="139"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="AppStoreIconGrey" id="pql-a9-dMD"/>
+                            </imageView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Go-Vv-vdm">
+                                <rect key="frame" x="94" y="106" width="102" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ask-by-6EQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="saveButtonPressed:" target="XfG-lQ-9wD" id="Ov0-8D-Lwn"/>
+                                </connections>
+                            </button>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="afw-ek-Mj0" customClass="DestinationView" customModule="Android_Image_Resizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="357" height="179"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="X37-KQ-B2b" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="1cw-ja-g5G"/>
+                            <constraint firstItem="8Ri-86-xz2" firstAttribute="centerX" secondItem="kqi-sv-nfT" secondAttribute="centerX" id="38M-Es-OfF"/>
+                            <constraint firstItem="n8t-3h-S84" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="18" id="39A-0F-XaD"/>
+                            <constraint firstItem="6Go-Vv-vdm" firstAttribute="top" secondItem="n8t-3h-S84" secondAttribute="bottom" constant="6" id="8Wg-Nj-RfH"/>
+                            <constraint firstItem="sbh-Hr-rLz" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="AuF-vG-35w"/>
+                            <constraint firstItem="sbh-Hr-rLz" firstAttribute="top" secondItem="nGR-Dz-dNX" secondAttribute="bottom" constant="6" id="BFb-1X-dc5"/>
+                            <constraint firstItem="6Go-Vv-vdm" firstAttribute="centerX" secondItem="n8t-3h-S84" secondAttribute="centerX" id="CRg-gb-JG8"/>
+                            <constraint firstItem="GjI-ZJ-c6d" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="EGe-0B-j6b"/>
+                            <constraint firstItem="8Ri-86-xz2" firstAttribute="centerY" secondItem="kqi-sv-nfT" secondAttribute="centerY" id="ElP-e2-yI0"/>
+                            <constraint firstAttribute="bottom" secondItem="afw-ek-Mj0" secondAttribute="bottom" id="F01-sm-yr6"/>
+                            <constraint firstItem="8Ri-86-xz2" firstAttribute="width" secondItem="kqi-sv-nfT" secondAttribute="width" id="GNd-SQ-ghR"/>
+                            <constraint firstItem="Bn0-C6-i76" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="GSf-Gs-Pwv"/>
+                            <constraint firstItem="6Go-Vv-vdm" firstAttribute="width" secondItem="n8t-3h-S84" secondAttribute="width" id="JV1-cx-UGk"/>
+                            <constraint firstAttribute="trailing" secondItem="afw-ek-Mj0" secondAttribute="trailing" id="LMI-QD-pC1"/>
+                            <constraint firstItem="Bn0-C6-i76" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="PjQ-QK-1DS"/>
+                            <constraint firstItem="31f-fj-CxQ" firstAttribute="height" secondItem="kqi-sv-nfT" secondAttribute="height" id="Qcf-TO-IqK"/>
+                            <constraint firstItem="n8t-3h-S84" firstAttribute="leading" secondItem="Bn0-C6-i76" secondAttribute="trailing" constant="8" id="SiC-3T-asl"/>
+                            <constraint firstItem="GjI-ZJ-c6d" firstAttribute="top" secondItem="UPT-cL-kmT" secondAttribute="bottom" constant="6" id="T0M-2A-gQ0"/>
+                            <constraint firstItem="X37-KQ-B2b" firstAttribute="top" secondItem="isI-5U-yuo" secondAttribute="bottom" constant="6" id="TCM-NN-d6F"/>
+                            <constraint firstItem="afw-ek-Mj0" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="VwM-CV-tfL"/>
+                            <constraint firstItem="31f-fj-CxQ" firstAttribute="centerY" secondItem="kqi-sv-nfT" secondAttribute="centerY" id="Wva-NY-BKc"/>
+                            <constraint firstItem="isI-5U-yuo" firstAttribute="top" secondItem="sbh-Hr-rLz" secondAttribute="bottom" constant="6" id="Yk3-aH-EYy"/>
+                            <constraint firstItem="afw-ek-Mj0" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Zk1-f9-LlR"/>
+                            <constraint firstAttribute="trailing" secondItem="kqi-sv-nfT" secondAttribute="trailing" constant="20" id="apN-WL-w8E"/>
+                            <constraint firstItem="nGR-Dz-dNX" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="e2w-Qu-fyA"/>
+                            <constraint firstItem="kqi-sv-nfT" firstAttribute="leading" secondItem="n8t-3h-S84" secondAttribute="trailing" constant="8" id="g0y-fq-1V6"/>
+                            <constraint firstItem="nGR-Dz-dNX" firstAttribute="top" secondItem="GjI-ZJ-c6d" secondAttribute="bottom" constant="6" id="jcx-Ay-6hp"/>
+                            <constraint firstAttribute="bottom" secondItem="kqi-sv-nfT" secondAttribute="bottom" constant="20" id="jll-xu-uni"/>
+                            <constraint firstItem="UPT-cL-kmT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="rlI-UA-AcI"/>
+                            <constraint firstItem="31f-fj-CxQ" firstAttribute="centerX" secondItem="kqi-sv-nfT" secondAttribute="centerX" id="v7H-Fx-AOp"/>
+                            <constraint firstItem="isI-5U-yuo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="vRW-9v-0GL"/>
+                            <constraint firstItem="UPT-cL-kmT" firstAttribute="top" secondItem="Bn0-C6-i76" secondAttribute="bottom" constant="8" id="vd6-FQ-CUd"/>
+                            <constraint firstItem="31f-fj-CxQ" firstAttribute="width" secondItem="kqi-sv-nfT" secondAttribute="width" id="wrO-os-GJf"/>
+                            <constraint firstItem="kqi-sv-nfT" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="xBO-fz-JSQ"/>
+                            <constraint firstItem="8Ri-86-xz2" firstAttribute="height" secondItem="kqi-sv-nfT" secondAttribute="height" id="xsr-FR-IcP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="appStoreIconImageBlue" destination="kqi-sv-nfT" id="vu6-6r-hZb"/>
+                        <outlet property="appStoreIconImageGrey" destination="8Ri-86-xz2" id="xH5-Tx-bEf"/>
+                        <outlet property="destinationView" destination="afw-ek-Mj0" id="cTn-yh-ecc"/>
+                        <outlet property="hdpiCheckbox" destination="nGR-Dz-dNX" id="9fk-rk-ZL1"/>
+                        <outlet property="ldpiCheckbox" destination="UPT-cL-kmT" id="RgS-s7-iGl"/>
+                        <outlet property="mdpiCheckbox" destination="GjI-ZJ-c6d" id="mff-OL-eoS"/>
+                        <outlet property="saveButton" destination="6Go-Vv-vdm" id="fGq-bB-jl0"/>
+                        <outlet property="sourceSizeDropDown" destination="n8t-3h-S84" id="9SJ-lE-hzO"/>
+                        <outlet property="thumbnailImage" destination="31f-fj-CxQ" id="r4M-EA-e6m"/>
+                        <outlet property="xhdpiCheckbox" destination="sbh-Hr-rLz" id="JOM-Zf-30g"/>
+                        <outlet property="xxhdpiCheckbox" destination="isI-5U-yuo" id="Ypd-jP-wSb"/>
+                        <outlet property="xxxhdpiCheckbox" destination="X37-KQ-B2b" id="SVF-wS-kj1"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="49.5" y="711.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AppStoreIconBlue" width="100" height="100"/>
+        <image name="AppStoreIconGrey" width="100" height="100"/>
+    </resources>
 </document>
